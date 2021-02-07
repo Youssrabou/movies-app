@@ -1,0 +1,37 @@
+
+
+<input #inputElm (keyup)= "serchMovies(inputElm.value)" placeholder="Recherche...." type= "text" class ="form-control sticky-top">
+<ul class = "list-group">
+    
+    <li (click) ="goto(result.id)"
+        *ngFor="let result of results" class = "list-group-item">
+       {{result.title}}
+    </li>
+
+</ul>
+<h2>{{inputElm.value}}</h2>
+<div [style.opacity] = " getListOpacty()"  class="row content">
+	<div *ngFor = "let movie of movies" class="col-12 col-md-3 col-xl-2">
+    	<div [routerLink] ="['/detail', movie.id, 'movies']"  class="card">
+        	<img [src]="printImageSrc(movie)">
+            <div class="card-body">
+                <h2>{{movie.title}}</h2>
+               
+                <app-ratings [score] = "movie.score/2"></app-ratings>   
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf ="isLoading" class="d-flex justify-content-center align-items-center loader">
+        <div class="spinner-border" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+    <!-- Navigation bar -->
+    <div class="fixed-bottom bg-info text-center p-2">
+        <button (click) ="loadNextMovies()"  class="btn btn-light" >Films suivants</button>
+                   
+    </div>
+
+   
+</div>

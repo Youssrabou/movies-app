@@ -1,0 +1,42 @@
+.div.content{
+
+    padding-bottom: 70 px;
+}
+
+.card:hover{
+
+    transform: scale(1.1);
+    cursor:pointer;
+
+    margin: 5px;
+}
+
+.card-body h2{
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 1.2rem;
+    color: blanchedalmond;
+
+
+}
+.card:hover img{
+
+    filter: 2px;
+
+}
+
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 999999;
+ }
+ 
+  
+ .card {
+    background: #0a0c1a
+ }
+

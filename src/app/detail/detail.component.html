@@ -1,0 +1,31 @@
+
+
+<div class="d-flex">
+    <button (click)="gotoRootPage()" class="btn">
+       <i class="fas fa-arrow-left"></i>
+    </button>
+    
+ </div>
+<div class ="card">
+
+   <!-- /Video static récupérée avant -->
+    <!-- <iframe width="100%"    
+    height="315" src="https://www.youtube.com/embed/D56HJp7dRFw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+    </iframe> -->
+      <!-- VIDEO-->
+      <iframe *ngIf="trailerId" width="100%" height="450" [src]="getSafeUrl()" frameborder="0" showinfo="0" autoplay="1"
+         modestbranding="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;"
+         allowfullscreen></iframe>
+
+      <!-- SI PAS DE VIDEO DISPONIBLE-->
+      <div *ngIf="!trailerId && !isLoadingVideo" class="alert">
+         <p>Pas de Bande-Annonce disponible</p>
+      </div>
+
+    <div class="card-body">
+        <h1>{{movie.title}}</h1>
+        <p>Date de sortie: {{movie.date | date :'dd/MM/yyyy'}}</p>
+        <p>{{movie.desc | coupetext}}</p>
+     </div>
+    
+</div>
